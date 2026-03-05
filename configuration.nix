@@ -29,8 +29,8 @@
   # shaun's config
   services.openssh.enable = true; 
   services.openssh.openFirewall = true;
-
-  
+  virtualisation.docker.enable = true; # Make sure Docker is enabled
+   
   #flakes config
   #  nix.settings.experimental-features = [ "nix-command" "flakes" ];
  
@@ -92,7 +92,7 @@
   users.users.xy = {
     isNormalUser = true;
     description = "Xavier Yan";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
     packages = with pkgs; [
       kdePackages.kate
     #  thunderbird
