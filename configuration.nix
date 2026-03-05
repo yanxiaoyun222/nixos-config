@@ -54,11 +54,11 @@
 
   # Enable the X11 windowing system.
   # You can disable this if you're only using the Wayland session.
-  services.xserver.enable = true;
+  services.xserver.enable = false;
 
   # Enable the KDE Plasma Desktop Environment.
-  services.displayManager.sddm.enable = true;
-  services.desktopManager.plasma6.enable = true;
+  #  services.displayManager.sddm.enable = true;
+  #  services.desktopManager.plasma6.enable = true;
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -93,6 +93,9 @@
     isNormalUser = true;
     description = "Xavier Yan";
     extraGroups = [ "networkmanager" "wheel" "docker" ];
+    openssh.authorizedKeys.keys = [
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAJbKJuWcW1K/bG45AOmddzQfuEHROTIosdMz8IR6ESJ 4883033@gmail.com"
+    ];
     packages = with pkgs; [
       kdePackages.kate
     #  thunderbird
@@ -100,7 +103,7 @@
   };
 
   # Install firefox.
-  programs.firefox.enable = true;
+  # programs.firefox.enable = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
